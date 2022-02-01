@@ -42,3 +42,4 @@ luac.out
 .netrwhist
 .vscode
 plugin
+**/__pycache__

@@ -2,39 +2,28 @@
 
 import sys
 import os
-import logging
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
 
-from os_common import OS
+from git import Git
+from pacman import Pacman
+from cargo import Cargo
+from node_yarn import Yarn
+from python_pip import PIP
 
-
-class PackageManager:
+class NeovimInstaller:
     def __init__(self) -> None:
-        self.os: OS = OS()
+        self.pacman = Pacman()
+        self.pip = PIP()
+        self.yarn = Yarn()
+        self.cargo = Cargo()
 
-    def install(self, packages):
-        logging.info(f'installing packages "{packages}"')
-        self.os.execute('sudo pacman -S --noconfirm' + packages)
+    def lnstall_prerequisites(self):
+        self.pacman.install('neovim python-pip nodejs yarn git cargo')
+        self.pip.install('pynvim')
+        self.yarn.install('prettier')
+        self.cargo.install('stylua --features lua52')
 
-    def uninstall(self, packages):
-        logging.info(f'uninstalling packages "{packages}"')
-        self.os.execute('sudo -S pacman -S --noconfirm' + packages)
-
-    def update_cache(self):
-        logging.info('sudo updating package cache')
-        self.os.execute('sudo pacman -Sy --noconfirm').communicate(input='password')
-
-    def upgrade(self):
-        logging.info('upgrading packages')
-        self.os.execute('pacman -Syu --noconfirm')
-
-
-def main():
-    pacman = PackageManager()
-    pacman.update_cache()
-
-
-if __name__ == '__main__':
-    main()
+        Git(cwd="~/.config/nvim", submodules=True,
+            job_count=2).clone('https://github.com/s1n7ax/dotnvim.git')

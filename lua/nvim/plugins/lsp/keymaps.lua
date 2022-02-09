@@ -8,28 +8,25 @@ local M = {}
 function M.on_attach(_, buffer)
     Shortcut:mode('n'):options():buffer(buffer):noremap():next():keymaps({
         -- rename file name
-        { '<leader>nr', vim.lsp.buf.rename },
-
-        -- quick fix actions
-        { '<leader>na', vim.lsp.buf.code_action },
+        { '<leader>r', vim.lsp.buf.rename },
 
         -- format the code
-        { '<leader>nn', vim.lsp.buf.formatting },
+        { '<leader>p', vim.lsp.buf.formatting },
 
         -- show more information about the current node
-        { '<leader>nh', vim.lsp.buf.hover },
+        { '<leader>v', vim.lsp.buf.hover },
 
         -- show diagnostics for current line
-        { '<leader>nc', vim.lsp.diagnostic.show_line_diagnostics },
+        { '<leader>d', vim.lsp.diagnostic.show_line_diagnostics },
 
         -- @todo find out what this is
-        { '<leader>ni', vim.lsp.buf.declaration },
+        { '<leader>f', vim.lsp.buf.declaration },
 
         -- @todo find out what this is
-        { '<leader>no', vim.lsp.buf.signature_help },
+        { '<leader>w', vim.lsp.buf.signature_help },
 
         -- @todo find out what this is
-        { '<leader>ne', vim.lsp.buf.type_definition },
+        { '<leader>q', vim.lsp.buf.type_definition },
 
         -- jump to next error
         { ']d', vim.diagnostic.goto_next },

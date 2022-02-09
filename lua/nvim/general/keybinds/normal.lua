@@ -1,15 +1,17 @@
 local Shortcut = require('nvim.utils.nvim.shortcut')
-local CmdString = require('nvim.utils.nvim.command-string')
-
-local l = CmdString.get_lua_cmd_string
-local c = CmdString.get_cmd_string
+local common = require('nvim.utils.common.module')
 
 Shortcut:mode('n'):options():noremap():next():keymaps({
     ----------------------------------------------------------------------
     --                              CONFIG                              --
     ----------------------------------------------------------------------
     -- reload nvim configuration file
-    { '<tab>r', l('R"nvim.utils.common.module".reload_package("nvim")') },
+    {
+        '<tab>r',
+        function()
+            common.reload_package('nvim')
+        end,
+    },
 
     ----------------------------------------------------------------------
     --                           CURSOR MOVE                            --
@@ -27,7 +29,7 @@ Shortcut:mode('n'):options():noremap():next():keymaps({
     { '<c-e>', '<c-w>k' },
 
     -- move cursor to last window
-    { '<c-w>', '<c-w>p' },
+    { '<c-w><c-w>', '<c-w>p' },
 
     -- move to last cursor position in the jump list
     { [['']], '``' },
@@ -48,10 +50,10 @@ Shortcut:mode('n'):options():noremap():next():keymaps({
     --                        BUFFER READ WRITE                         --
     ----------------------------------------------------------------------
     -- save the current buffer
-    { '<leader>l', c('w') },
+    { ',w', ':w<cr>' },
 
     -- close the window
-    { '<leader>q', c('q') },
+    { ',q', ':q<cr>' },
 
     ----------------------------------------------------------------------
     --                      BUFFER & WINDOW SWITCH                      --
@@ -95,5 +97,5 @@ Shortcut:mode('n'):options():noremap():next():keymaps({
     --                              OTHER                               --
     ----------------------------------------------------------------------
     -- to go enable spell checker
-    { '<F6>', c('setlocal spell! spelllang=en_us') },
+    { '<F6>', ':setlocal spell! spelllang=en_us<cr>' },
 })

@@ -28,4 +28,4 @@ Shortcut
     :noremap()
     :silent()
     :next()
-    :keymap('<space><space>', ':ZenMode<CR>')
+    :keymap(',a', ':ZenMode<CR>')

@@ -5,6 +5,7 @@ require('packer').init({
 
 return require('packer').startup(function()
     use_rocks({ 'penlight', 'promise-lua' })
+    use("wbthomason/packer.nvim")
 
     ----------------------------------------------------------------------
     --                               LSP                                --

@@ -16,7 +16,6 @@ local servers = {
     'rust_analyzer',
     'tsserver',
     'volar',
-    'groovyls',
     'clangd',
 }
 

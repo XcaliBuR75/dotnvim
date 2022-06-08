@@ -1,4 +1,0 @@
-[submodule "pack/plugins/start/packer.nvim"]
-	path = pack/plugins/start/packer.nvim
-	url = https://github.com/wbthomason/packer.nvim.git
-	branch = master

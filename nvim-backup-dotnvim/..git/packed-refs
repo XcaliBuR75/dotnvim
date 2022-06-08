@@ -1,0 +1,10 @@
+# pack-refs with: peeled fully-peeled sorted 
+09d1399fd5989adc6af5c3ea3638aac1f57c8846 refs/remotes/origin/feature/finalize_keymaps
+2de83998560896ca77f7a67dee5f03f7d38db556 refs/remotes/origin/feature/install_script
+586ce66e8de6818c987a2422eac9686554ee83f1 refs/remotes/origin/feature/java-debugger
+9500d0b3ad6475ebe5826b68fb51de248f234c5a refs/remotes/origin/feature/junit-test-support
+817b8885c5d9ae2bf1c4e9fadc8d1fddbc40844f refs/remotes/origin/feature/port_all_lang_to_builtin_lsp
+3af3df6c9c9a78529ffc64a1b87bf8ebad177c95 refs/remotes/origin/feature/resturcture_keymaps_to_more_leader_based_keymaps
+6bc2a71c1fc569b6eacada4ac2712d7f3f86fb5e refs/remotes/origin/feature/update_readme_for_ubuntu
+cc35083fd002762d2959b63a87322aad92a96e71 refs/remotes/origin/fix/code-cleanup
+b4f55870a4609c67fc7d2d1e4f8d4d56b39b999e refs/remotes/origin/main
